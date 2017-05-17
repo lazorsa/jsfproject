@@ -1,4 +1,4 @@
-package br.com.implementacao.crud;
+package br.com.framework.implementacao.crud;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -39,6 +39,7 @@ public class ImplementacaoCrud<T> implements InterfaceCrud<T>{
 	@Autowired
 	private SimpleJdbcTemplateImpl simpleJdbcTemplateImpl;
 	
+	@SuppressWarnings("unused")
 	private SimpleJdbcTemplate getSimpleJdbcTemplateImpl() {
 		return simpleJdbcTemplateImpl;
 
@@ -79,6 +80,7 @@ public class ImplementacaoCrud<T> implements InterfaceCrud<T>{
 		executeFluhSession();
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public T merge(T obj) throws Exception {
 		validaSessionFactory();
@@ -93,6 +95,7 @@ public class ImplementacaoCrud<T> implements InterfaceCrud<T>{
 		StringBuilder query = new StringBuilder();
 		query.append("select distinct (entity) from ").append(entidade.getSimpleName()).append(" entity ");
 		
+		@SuppressWarnings("unchecked")
 		List<T> lista = sessionFactory.getCurrentSession().createQuery(query.toString()).list();
 		
 		return lista;
@@ -109,11 +112,13 @@ public class ImplementacaoCrud<T> implements InterfaceCrud<T>{
 	@Override
 	public T findByPorId(Class<T> entidade, Long id) throws Exception {
 		validaSessionFactory();
+		@SuppressWarnings("unchecked")
 		T obj = (T) sessionFactory.getCurrentSession().load(getClass(), id);
 		
 		return obj;
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<T> findListByQueryDinamica(String s) throws Exception {
 		validaSessionFactory();
@@ -204,6 +209,7 @@ public class ImplementacaoCrud<T> implements InterfaceCrud<T>{
 	 * @return List<T>
 	 * @throws Exception
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<T> findlistbyQueryDinamia(String query, int iniciaNoRegistro, int maximoResultado) throws Exception {
 		validaSessionFactory();
@@ -227,10 +233,12 @@ public class ImplementacaoCrud<T> implements InterfaceCrud<T>{
 		}
 	}
 	
+	@SuppressWarnings("unused")
 	private void commitProcessoAjax (){
 		sessionFactory.getCurrentSession().beginTransaction().commit();
 	}
 	
+	@SuppressWarnings("unused")
 	private void rollBackProcesoAjax(){
 		sessionFactory.getCurrentSession().beginTransaction().rollback();
 	}
@@ -245,6 +253,7 @@ public class ImplementacaoCrud<T> implements InterfaceCrud<T>{
 	
 	List<Object[]> getListSQLDinamicaArray(String sql) throws Exception {
 		validaSessionFactory();
+		@SuppressWarnings("unchecked")
 		List<Object[]> lista = (List<Object[]>) sessionFactory.getCurrentSession().createQuery(sql).list();
 		return lista;
 	}

@@ -1,0 +1,24 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title><ui:insert name="titulo">Caixaki</ui:insert></title>
+</h:head>
+<h:form>
+	<h:body>
+		<p:panel id="panelPageNotFound" header="Aviso"
+			style="margin-bottom:20px">
+			<h:panelGrid columns="2" cellpadding="10">
+				<h:graphicImage library="img" name="page_not_found.jpeg"
+					styleClass="bordaImagem" />
+				<h:outputText
+					value="El acceso a esta página no ha sido encontrado, echa un vistazo a la dirección indicada y comprueba la url." />
+			</h:panelGrid>
+		</p:panel>
+	</h:body>
+</h:form>
+</html>

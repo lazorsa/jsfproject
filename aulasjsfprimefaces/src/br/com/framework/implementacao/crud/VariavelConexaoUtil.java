@@ -1,4 +1,4 @@
-package br.com.implementacao.crud;
+package br.com.framework.implementacao.crud;
 
 /**
  * Nombre de conexión JNDI Datasource Tomcat

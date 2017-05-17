@@ -14,7 +14,7 @@ import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.engine.SessionFactoryImplementor;
 
-import br.com.implementacao.crud.VariavelConexaoUtil;
+import br.com.framework.implementacao.crud.VariavelConexaoUtil;
 
 /**
  * Responsable de establecer la conexión con hibernate
@@ -27,7 +27,7 @@ public class HibernateUtil implements Serializable{
 	
 	private static final long serialVersionUID = 1L;
 	
-	public static String JAVA_COMP_ENV_JDBC_DATA_SOURCE = "java:/comp/env/jdbc/datasouce";
+	public static String JAVA_COMP_ENV_JDBC_DATA_SOURCE = "java:/comp/env/jdbc/datasource";
 	
 	private static SessionFactory sessionFactory = buildSessionFactory();
 	
@@ -118,22 +118,3 @@ public class HibernateUtil implements Serializable{
 	}
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
